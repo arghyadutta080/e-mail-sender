@@ -10,18 +10,29 @@ def mail_send():
     my_server.sendmail('pythonbot010@gmail.com',
                        sender_id,
                        mail_body)
-    print("! Mail sent successfully !")
+    print("")
+    print("! Your Mail is successfully sent !")
     print("")
 
+
 count = 0
+mail_count = 0
 
 while (1):
     if (count == 0):
-        confirm = input("Do u want to send an e-mail ? ")
+        confirm = input("Do you want to send an e-mail ? (Yes/No) : ")
     elif (count > 0):
-        confirm = input("Do u want to send another e-mail ? ")   
-    if (confirm != "Yes" and confirm != "yes"):
+        confirm = input("Do you want to send another e-mail ? (Yes/No) : ")
+    if (confirm != "Yes" and confirm != "yes" and confirm != "YES"):
+        print("Thank You, for trying this program.")
         break
     else:
         mail_send()
-    count = count + 1    
+        mail_count = mail_count + 1
+        if (mail_count == 1):
+            print("You have sent " + str(mail_count) + " mail.")
+            print("")
+        elif (mail_count > 1):
+            print("You have sent " + str(mail_count) + " mails.")
+            print("")
+    count = count + 1
