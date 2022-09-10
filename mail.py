@@ -11,11 +11,17 @@ def mail_send():
                        sender_id,
                        mail_body)
     print("! Mail sent successfully !")
+    print("")
 
+count = 0
 
 while (1):
-    confirm = input("Do u want to send an e-mail ? ")
+    if (count == 0):
+        confirm = input("Do u want to send an e-mail ? ")
+    elif (count > 0):
+        confirm = input("Do u want to send another e-mail ? ")   
     if (confirm != "Yes" and confirm != "yes"):
         break
     else:
         mail_send()
+    count = count + 1    
